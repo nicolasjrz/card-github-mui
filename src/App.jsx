@@ -1,8 +1,19 @@
+import { Container } from "@mui/material";
+
 function App() {
   return (
-    <div>
-      <h1>estructra</h1>
-    </div>
+    <Container
+      sx={{
+        background: "whitesmoke",
+        width: "80vw",
+        height: "500px",
+        borderRadius: "16px",
+        marginTop: "40px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    ></Container>
   );
 }
 
