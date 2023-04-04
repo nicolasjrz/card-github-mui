@@ -9,7 +9,7 @@ export const Card = () => {
       <Grid item xs={3}>
         <CardMedia
           component={"img"}
-          //image={}
+          image={"https://avatars.githubusercontent.com/u/61887365?v=4"}
           alt="avatar"
           sx={{ borderRadius: "50%", marginLeft: "10px" }}
         />
