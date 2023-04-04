@@ -1,7 +1,17 @@
 import { IconButton, Stack, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { useForm } from "../hooks/useForm";
 
 export const Search = () => {
+  const { input, onChangeInput, reset } = useForm();
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if (input.name.length <= 0) return;
+
+    // console.log({ input });
+  };
+
   return (
     <Stack
       direction={"row"}
@@ -11,6 +21,8 @@ export const Search = () => {
       }}
     >
       <TextField
+        value={input.name}
+        onChange={onChangeInput}
         id="search"
         label="GitHub User"
         variant="outlined"
@@ -21,6 +33,7 @@ export const Search = () => {
         }}
       />
       <IconButton
+        onClick={onSubmit}
         size="small"
         sx={{
           left: "-45px",

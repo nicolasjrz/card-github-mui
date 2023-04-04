@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export const useForm = () => {
   const [input, setInput] = useState({ name: "" });
 
@@ -5,14 +7,9 @@ export const useForm = () => {
     setInput({ name: event.target.value });
   };
 
-  const onSubmitTest = (name) => {
-    console.log(name);
-    setInput({ name: name });
-  };
-
   const reset = () => {
     setInput({ name: "" });
   };
 
-  return { input, onChangeInput, onSubmitTest, reset };
+  return { input, onChangeInput, reset };
 };
