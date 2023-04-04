@@ -2,14 +2,15 @@ import { IconButton, Stack, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useForm } from "../hooks/useForm";
 
-export const Search = () => {
+export const Search = ({ changeName, hasError }) => {
   const { input, onChangeInput, reset } = useForm();
 
   const onSubmit = (event) => {
     event.preventDefault();
     if (input.name.length <= 0) return;
 
-    // console.log({ input });
+    changeName(input.name);
+    reset();
   };
 
   return (

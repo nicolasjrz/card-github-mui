@@ -1,8 +1,11 @@
 import { Container } from "@mui/material";
 import { Search } from "./components/Search";
 import { Card } from "./components/card/Card";
+import { useFetchApi } from "./hooks/useFetchApi";
 
 function App() {
+  const { data, isLoading, hasError, changeName } = useFetchApi();
+
   return (
     <Container
       sx={{
@@ -16,8 +19,8 @@ function App() {
         alignItems: "center",
       }}
     >
-      <Search />
-      <Card />
+      <Search changeName={changeName} hasError={hasError} />
+      {isLoading == false ? <Card data={data} /> : "loading"}
     </Container>
   );
 }
