@@ -1,5 +1,4 @@
 import { Stack, Typography } from "@mui/material";
-import React from "react";
 import { PaperInformation } from "./PaperInformation";
 import { LocationInformation } from "./LocationInformation";
 

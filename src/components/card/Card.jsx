@@ -1,4 +1,3 @@
-import React from "react";
 import { InformationCard } from "./InformationCard";
 import { DescriptionCard } from "./DescriptionCard";
 import { CardMedia, Grid, Stack } from "@mui/material";

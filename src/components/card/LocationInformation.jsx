@@ -5,7 +5,6 @@ import {
   Twitter,
 } from "@mui/icons-material";
 import { Grid, Stack, Typography } from "@mui/material";
-import React from "react";
 
 export const LocationInformation = () => {
   return (
