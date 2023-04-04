@@ -1,4 +1,6 @@
 import { Container } from "@mui/material";
+import { Search } from "./components/Search";
+import { Card } from "./components/card/Card";
 
 function App() {
   return (
@@ -13,7 +15,10 @@ function App() {
         flexDirection: "column",
         alignItems: "center",
       }}
-    ></Container>
+    >
+      <Search />
+      <Card />
+    </Container>
   );
 }
 
