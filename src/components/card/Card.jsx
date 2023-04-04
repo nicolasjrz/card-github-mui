@@ -2,13 +2,15 @@ import { InformationCard } from "./InformationCard";
 import { DescriptionCard } from "./DescriptionCard";
 import { CardMedia, Grid, Stack } from "@mui/material";
 
-export const Card = () => {
+export const Card = ({ data }) => {
+  const { avatar_url } = data;
+
   return (
     <Grid container spacing={2} sx={{ marginTop: 5 }}>
       <Grid item xs={3}>
         <CardMedia
           component={"img"}
-          image={"https://avatars.githubusercontent.com/u/61887365?v=4"}
+          image={avatar_url}
           alt="avatar"
           sx={{ borderRadius: "50%", marginLeft: "10px" }}
         />
@@ -21,8 +23,8 @@ export const Card = () => {
             margin: "20px",
           }}
         >
-          <InformationCard />
-          <DescriptionCard />
+          <InformationCard data={data} />
+          <DescriptionCard data={data} />
         </Stack>
       </Grid>
     </Grid>

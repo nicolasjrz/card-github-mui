@@ -5,7 +5,7 @@ import { useFetchApi } from "./hooks/useFetchApi";
 
 function App() {
   const { data, isLoading, hasError, changeName } = useFetchApi();
-
+  console.log(data);
   return (
     <Container
       sx={{

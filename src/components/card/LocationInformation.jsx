@@ -6,27 +6,27 @@ import {
 } from "@mui/icons-material";
 import { Grid, Stack, Typography } from "@mui/material";
 
-export const LocationInformation = () => {
+export const LocationInformation = ({ location, company, twitter, url }) => {
   return (
     <Grid container spacing={2} sx={{ marginTop: "10px" }}>
       <Grid item xs={6}>
         <Stack direction={"row"} spacing={2} sx={{ paddingBottom: "15px" }}>
           <LocationOnOutlined />
-          <Typography>location</Typography>
+          <Typography>{location}</Typography>
         </Stack>
         <Stack direction={"row"} spacing={2}>
           <Business />
-          <Typography>company</Typography>
+          <Typography>{company}</Typography>
         </Stack>
       </Grid>
       <Grid item xs={6}>
         <Stack direction={"row"} spacing={2} sx={{ paddingBottom: "15px" }}>
           <Twitter />
-          <Typography>twitter_username</Typography>
+          <Typography>{twitter}</Typography>
         </Stack>
         <Stack direction={"row"} spacing={2}>
           <LanguageOutlined />
-          <Typography>html_url</Typography>
+          <Typography>{url}</Typography>
         </Stack>
       </Grid>
     </Grid>
