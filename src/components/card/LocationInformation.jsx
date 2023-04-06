@@ -38,7 +38,14 @@ export const LocationInformation = ({ location, company, twitter, url }) => {
         <Grid item md={6} xs={12} display={"flex"} mt={2}>
           <LanguageOutlined />
 
-          <Link ml={1} href={url} underline="hover" pt={0.5}>
+          <Link
+            rel="noopener"
+            ml={1}
+            target={url}
+            href={url}
+            underline="hover"
+            pt={0.5}
+          >
             {url}
           </Link>
         </Grid>
