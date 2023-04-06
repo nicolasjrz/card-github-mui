@@ -1,25 +1,24 @@
-import { Paper, Stack, Typography } from "@mui/material";
+import { Paper, Stack } from "@mui/material";
+import { PaperItem } from "./PaperItem";
 
 export const PaperInformation = ({ repositories, followers, following }) => {
   return (
     <>
-      <Paper elevation={3} sx={{ marginTop: "15px" }}>
+      <Paper elevation={3} sx={{ marginTop: "10px" }}>
         <Stack
-          direction={"row"}
-          sx={{ justifyContent: "space-evenly", margin: "20px" }}
+          sx={{
+            display: "flex",
+            flexDirection: {
+              md: "row",
+            },
+            justifyContent: {
+              xs: "space-evenly",
+            },
+          }}
         >
-          <Stack>
-            <Typography variant="h5">public repositories</Typography>
-            <Typography variant="h6">{repositories}</Typography>
-          </Stack>
-          <Stack>
-            <Typography variant="h5">followers</Typography>
-            <Typography variant="h6">{followers}</Typography>
-          </Stack>
-          <Stack>
-            <Typography variant="h5">following</Typography>
-            <Typography variant="h6">{following}</Typography>
-          </Stack>
+          <PaperItem title="public repositories" data={repositories} />
+          <PaperItem title="followers" data={followers} />
+          <PaperItem title="following" data={following} />
         </Stack>
       </Paper>
     </>

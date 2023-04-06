@@ -13,14 +13,14 @@ export const DescriptionCard = ({ data }) => {
     twitter_username,
     html_url,
   } = data;
+
   return (
     <>
       <Stack sx={{ justifyContent: "center" }}>
         <Typography variant="body1">
-          {bio}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit dolor
-          nihil ratione odit, consequuntur possimus ipsam alias at quis quas
-          libero optio ipsa illum! Atque voluptatibus nemo in itaque eum.
+          {bio === null
+            ? "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+            : bio}
         </Typography>
 
         <PaperInformation

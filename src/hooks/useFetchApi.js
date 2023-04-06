@@ -4,6 +4,7 @@ export const useFetchApi = () => {
   const [state, setState] = useState({
     data: null,
     isLoading: true,
+    isUser: false,
     hasError: null,
   });
 
@@ -21,10 +22,13 @@ export const useFetchApi = () => {
         data,
         isLoading: false,
         hasError: null,
+        isUser: false,
       });
     } catch (error) {
       setState({
         ...state,
+        //data: { name: "nicolas" },
+        isUser: true,
         hasError: error,
       });
     }
@@ -41,6 +45,7 @@ export const useFetchApi = () => {
   return {
     data: state.data,
     isLoading: state.isLoading,
+    isUser: state.isUser,
     hasError: state.hasError,
     changeName,
   };

@@ -1,47 +1,79 @@
-import { IconButton, Stack, TextField } from "@mui/material";
+import { Alert, IconButton, Snackbar, Stack, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useForm } from "../hooks/useForm";
+import { useEffect, useState } from "react";
 
-export const Search = ({ changeName, hasError }) => {
+export const Search = ({ changeName, isUser }) => {
   const { input, onChangeInput, reset } = useForm();
-
   const onSubmit = (event) => {
     event.preventDefault();
     if (input.name.length <= 0) return;
-
     changeName(input.name);
     reset();
   };
 
+  const vertical = "top";
+  const horizontal = "center";
+
+  const [abrir, setAbrir] = useState(true);
+
+  const test = () => {
+    setAbrir(isUser);
+    if (abrir !== false) return;
+    setAbrir(true);
+    setTimeout(() => {
+      setAbrir(false);
+    }, 3000);
+  };
+
+  useEffect(() => {
+    test();
+  }, [isUser]);
+
   return (
-    <Stack
-      direction={"row"}
-      sx={{
-        marginTop: "20px",
-        width: "80%",
-      }}
-    >
-      <TextField
-        value={input.name}
-        onChange={onChangeInput}
-        id="search"
-        label="GitHub User"
-        variant="outlined"
-        placeholder="Buscar usuario GitHub"
-        size="small"
+    <>
+      <Stack
+        direction={"row"}
         sx={{
-          width: "90%",
-        }}
-      />
-      <IconButton
-        onClick={onSubmit}
-        size="small"
-        sx={{
-          left: "-45px",
+          marginTop: "20px",
+          width: "80%",
+          marginLeft: "20px",
         }}
       >
-        <SearchIcon />
-      </IconButton>
-    </Stack>
+        <TextField
+          value={input.name}
+          onChange={onChangeInput}
+          id="search"
+          label="GitHub User"
+          variant="outlined"
+          placeholder="Buscar usuario GitHub"
+          size="small"
+          sx={{
+            width: "100%",
+          }}
+        />
+        <IconButton
+          onClick={onSubmit}
+          size="small"
+          sx={{
+            left: "-45px",
+          }}
+        >
+          <SearchIcon />
+        </IconButton>
+      </Stack>
+
+      <Snackbar
+        open={abrir}
+        autoHideDuration={6000}
+        anchorOrigin={{ vertical, horizontal }}
+        key={vertical + horizontal}
+        onClick={test}
+      >
+        <Alert onClose={test} severity="error" sx={{ width: "100%" }}>
+          Usuario no encontrado!
+        </Alert>
+      </Snackbar>
+    </>
   );
 };
