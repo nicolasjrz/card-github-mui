@@ -15,19 +15,18 @@ export const Search = ({ changeName, isUser }) => {
   const vertical = "top";
   const horizontal = "center";
 
-  const [abrir, setAbrir] = useState(true);
+  const [abrir, setAbrir] = useState(false);
 
-  const test = () => {
+  const onCheckUser = () => {
     setAbrir(isUser);
     if (abrir !== false) return;
-    setAbrir(true);
     setTimeout(() => {
-      setAbrir(false);
+      setAbrir(abrir);
     }, 3000);
   };
 
   useEffect(() => {
-    test();
+    onCheckUser();
   }, [isUser]);
 
   return (
@@ -68,9 +67,9 @@ export const Search = ({ changeName, isUser }) => {
         autoHideDuration={6000}
         anchorOrigin={{ vertical, horizontal }}
         key={vertical + horizontal}
-        onClick={test}
+        onClick={onCheckUser}
       >
-        <Alert onClose={test} severity="error" sx={{ width: "100%" }}>
+        <Alert onClose={onCheckUser} severity="error" sx={{ width: "100%" }}>
           Usuario no encontrado!
         </Alert>
       </Snackbar>
