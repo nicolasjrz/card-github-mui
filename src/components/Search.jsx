@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 export const Search = ({ changeName, isUser }) => {
   const { input, onChangeInput, reset } = useForm();
+
   const onSubmit = (event) => {
     event.preventDefault();
     if (input.name.length <= 0) return;
@@ -15,13 +16,13 @@ export const Search = ({ changeName, isUser }) => {
   const vertical = "top";
   const horizontal = "center";
 
-  const [abrir, setAbrir] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
   const onCheckUser = () => {
-    setAbrir(isUser);
-    if (abrir !== false) return;
+    setToggle(isUser);
+    if (toggle) return;
     setTimeout(() => {
-      setAbrir(abrir);
+      setToggle(toggle);
     }, 3000);
   };
 
@@ -63,7 +64,7 @@ export const Search = ({ changeName, isUser }) => {
       </Stack>
 
       <Snackbar
-        open={abrir}
+        open={toggle}
         autoHideDuration={6000}
         anchorOrigin={{ vertical, horizontal }}
         key={vertical + horizontal}
